@@ -30,6 +30,21 @@ abstract class Base
         return $this->id;
     }
 
+    public function getCategory()
+    {
+        return new Category($this->categoryId);
+    }
+
+    public function getVendor()
+    {
+        return new Vendor($this->vendorId);
+    }
+
+    public function getImages()
+    {
+        return Image::findBy( 'productId', $this->getId());
+    }
+
 
 
     public function fromArray($data)
